@@ -11,10 +11,6 @@
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-<<<<<<< Updated upstream
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
-      <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
-=======
       <% if user_signed_in? %>
         <li><%= link_to '新規店舗登録', new_item_path, class: "category-list" %></li>
         <li><%= link_to 'マイページ', "#", class: "brand-list" %></li>
@@ -22,7 +18,6 @@
         <li><%= link_to 'ようこそYOYAKUへ',new_user_registration_path, class: "category-list" %></li>
         <li><%= link_to '世界の予約アプリ', new_user_registration_path, class: "brand-list" %></li>
       <% end %>
->>>>>>> Stashed changes
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
