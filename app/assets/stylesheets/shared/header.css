@@ -46,17 +46,16 @@
 }
 
 .nav {
-  font-size: 18px;
+  font-size: 30px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   width: 100%;
-  padding: 1vh 0;
 }
 
 .lists-left {
   display: flex;
-  min-width: 200px;
+  
 
 }
 
