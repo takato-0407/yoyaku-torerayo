@@ -12,7 +12,7 @@
   <div class='nav'>
     <ul class='lists-left'>
       <% if user_signed_in? %>
-      <li><%= link_to '店舗一覧', "#", class: "category-list" %></li>
+      <li><%= link_to 'ツイート一覧', tweets_path, class: "category-list" %></li>
       <li><%= link_to 'マイページ', user_path(current_user), class: "brand-list" %></li>
     </ul>
     <ul class='lists-right'>
