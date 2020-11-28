@@ -1,1 +1,12 @@
-ここが表示されたら成功
+<%= render "shared/header" %>
+  <%# /ヘッダー部分 %>
+<div class='tweets-contents'>
+  <div class='tweets-main'>
+    <ul class='tweet-ue'>
+      <li><%= link_to '投稿する', new_tweet_path, class: "tweet-top" %></li>
+    </ul>
+  </div>
+  <%# /メインページ・表示など %>
+  <div class='contents'>
+
+<%= render "shared/footer" %>
