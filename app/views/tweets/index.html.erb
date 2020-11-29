@@ -7,6 +7,39 @@
     </ul>
   </div>
   <%# /メインページ・表示など %>
-  <div class='contents'>
+  <div class='item-contents'>
+    <h2 class='title'>最近のツイート</h2>
+    <ul class='item-lists'>
+      <% if @tweets.length != 0 %>
+      <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
+      <% @tweets.each do |tweet|%>
+      <li class='list'>
+        <%= link_to tweet_path(tweet) do %>
+        <div class='item-img-content'>
+          <%= image_tag "IMG_0631.jpg", class: "item-img" %>
+          <%# if item.item_purchase.present? %>
+          <%# 商品が売れていればsold outを表示しましょう %>
+          <div class='sold-out'>
+          </div>
+          <% end %>
+          <%# //商品が売れていればsold outを表示しましょう %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= tweet.name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= current_user.nickname  %>さんの投稿<br></span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+          <% end %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
 
 <%= render "shared/footer" %>

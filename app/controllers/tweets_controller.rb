@@ -1,7 +1,9 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+  before_action :set_item, only: [:edit, :show, :update, :destroy]
+
   def index
-    @tweets = Item.all.order(created_at: :DESC)
+    @tweets = Tweet.all.order(created_at: :DESC)
   end
   def new
     @tweet = Tweet.new
@@ -17,9 +19,32 @@ class TweetsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @tweet.update(tweet_params)
+      redirect_to tweet_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @tweet.destroy
+    redirect_to root_path
+  end
+
   private
 
   def tweet_params
     params.require(:tweet).permit(:name, :text).merge(user_id: current_user.id)
+  end
+
+  def set_item
+    @tweet = Tweet.find(params[:id])
   end
 end
