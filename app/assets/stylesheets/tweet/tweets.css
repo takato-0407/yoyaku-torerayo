@@ -33,3 +33,13 @@
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
+
+.tweet-kinou{
+  font-size: 40px;
+  border:1px solid #fff ;
+}
+
+.tweet-bun{
+  font-size: 20px;
+  color: red;
+}

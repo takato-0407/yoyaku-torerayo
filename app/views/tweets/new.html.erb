@@ -1,0 +1,29 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%= link_to image_tag('IMG_0581.jpeg' , size: '100x50'), "/" %>
+    <h1 class='tweet-kinou'>お気に入りの店舗は見つかりましたか？</h1>
+      <h2 class='tweet-bun'>早速ツイートして評価してみましょう！</h2>
+  </header>
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">ツイートしてみましょう</h2>
+    <%= form_with model: @tweet, local: true do |f| %>
+    <div class="new-items">
+      <div class="weight-bold-text">
+        店舗名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"店舗名（必須)", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          店舗の評価
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :text, class:"items-text", id:"item-info", placeholder:"全世界の人にあなたの評価を伝えてみましょう！！！" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <div class="sell-btn-contents">
+      <%= f.submit "ツイートする" ,class:"sell-btn" %>
+      <%=link_to 'もどる', tweets_path, class:"back-btn" %>
+    </div>
+    <%end%>
+</div>
