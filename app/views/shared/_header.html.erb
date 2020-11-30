@@ -12,9 +12,17 @@
   <div class='nav'>
     <ul class='lists-left'>
       <% if user_signed_in? %>
+
       <li><%= link_to 'ツイート一覧', tweets_path, class: "category-list" %></li>
       <li><%= link_to '『マイページ』', user_path(current_user), class: "brand-list" %></li>
       <li><%= link_to '『トップページに戻る』', root_path, class: "brand-list" %></li>
+    </ul>
+        <li><%= link_to '新規店舗登録', new_item_path, class: "category-list" %></li>
+        <li><%= link_to 'マイページ', "#", class: "brand-list" %></li>
+      <% else %>
+        <li><%= link_to 'ようこそYOYAKUへ',new_user_registration_path, class: "category-list" %></li>
+        <li><%= link_to '世界の予約アプリ', new_user_registration_path, class: "brand-list" %></li>
+      <% end %>
     </ul>
     <ul class='lists-right'>
        <li><%= link_to current_user.nickname, "#", class: "user-nickname"%> </li>
