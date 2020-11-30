@@ -4,74 +4,58 @@
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= @item.name %>
+      『<%= @tweet.name %>』
     </h2>
     <div class='item-img-content'>
-      <%= image_tag @item.image ,class:"item-box-img" %>
+      <%#= image_tag @item.image ,class:"item-box-img" %>
       <%# 商品が売れている場合は、sold outを表示しましょう %>
       <div class='sold-out'>
-      <% if @item.item_purchase.present? %>
-        <span>Sold Out!!</span>
-      <% end %>
+      <%# if @item.item_purchase.present? %>
+        <span></span>
+      <%# end %>
+      </div>
+      <div class="item-explain-box">
+          <span><%= @tweet.text %></span>
       </div>
       <%# //商品が売れている場合は、sold outを表示しましょう %>
     </div>
     <div class="item-price-box">
       <span class="item-price">
-        <%= @item.price %>
+        <%#= @item.price %>
       </span>
       <span class="item-postage">
-        (税込) 送料込み
+        
       </span>
     </div>
 
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-    <% if user_signed_in? && current_user.id == @item.user_id %>
-    <%= link_to '商品の編集', edit_item_path, method: :get, class: "item-red-btn" %>
+    <% if user_signed_in? && current_user.id == @tweet.user_id %>
+    <%= link_to 'ツイート内容の編集', edit_item_path, method: :get, class: "item-red-btn" %>
     <p class='or-text'>or</p>
-    <%= link_to '削除', item_path, method: :delete, class:'item-destroy' %>
+    <%= link_to 'ツイートを削除', item_path, method: :delete, class:'item-destroy' %>
     <% else %>
     <%# 商品が売れていない場合はこちらを表示しましょう %>
-    <% if user_signed_in? %>
-    <% if @item.item_purchase.present? %>
-    <% else %>
-    <%= link_to '購入画面に進む', item_orders_path(@item.id),class:"item-red-btn"%>
+    <%# if user_signed_in? %>
+    <%# if @item.item_purchase.present? %>
+    <%# else %>
+    <%= link_to 'コメントしてみよう！', tweet_comments_path(@tweet.id), class:"item-red-btn"%>
     <% end %>
     <%# //商品が売れていない場合はこちらを表示しましょう %>
-    <% end %>
+    <%# end %>
 
 
     <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-    <% end %>
+    <%# end %>
     <div class="item-explain-box">
-      <span><%= @item.info %></span>
+      <span><%= @tweet.text %></span>
     </div>
     <table class="detail-table">
       <tbody>
         <tr>
           <th class="detail-item">店舗名</th>
-          <td class="detail-value"><%= @item.name %></td>
+          <td class="detail-value"><%= @tweet.name %></td>
         </tr>
-        <tr>
-          <th class="detail-item">店舗カテゴリー</th>
-          <td class="detail-value"><%=  @item.tempo.name %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">営業時間</th>
-          <td class="detail-value"><%=  @item.ttime.name %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">予約最大人数</th>
-          <td class="detail-value"><%=  @item.man_kaz.name %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">店舗の特徴</th>
-          <td class="detail-value"><%= @item.tempo_to.name %></td>
-        </tr>
-        <tr>
-          <th class="detail-item">最寄駅</th>
-          <td class="detail-value"><%= @item.eki.name %></td>
-        </tr>
+        
       </tbody>
     </table>
     <div class="option">
@@ -107,7 +91,7 @@
       後ろの商品 ＞
     </a>
   </div>
-  <a href="#" class='another-item'><%= @item.tempo.name %>をもっと見る</a>
+  <%#<a href="#" class='another-item'><%= @item.tempo.name %>をもっと見る</a>
 </div>
 
 <%= render "shared/footer" %>

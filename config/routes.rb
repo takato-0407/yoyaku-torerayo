@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :items do
     resources :orders, only:[:index, :create]
   end
+  resources :tweets do
+    resources :comments, only:[:index, :create]
+  end
+  resources :users, only: :show
 end

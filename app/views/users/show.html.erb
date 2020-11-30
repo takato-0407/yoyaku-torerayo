@@ -1,0 +1,56 @@
+<%= render "shared/header" %>
+<div class='main'>
+  
+  <%#マイページの上段部分%>
+  <div class='title-user'>
+    <h2 class='service-show'>
+      『<%= current_user.nickname %>』  さんのマイページ
+    </h2>
+      <a class='service-contents'>
+      ようこそ！マイページへ！
+      </a>
+  </div>
+  <%#メインの表示画面%>
+  <div class='select-reason-contents'>
+    <h2 class='title'>
+      『<%= current_user.nickname %>』さんの投稿一覧
+    </h2>
+    <ul class='reason-lists'>
+      <li class='list'>
+        <%= image_tag 'IMG_0584.JPG' , size: '200x200' ,class: "list-pict" %>
+        <span class='reason-list-number'>1</span>
+        <h3 class='reason-list-text'>
+          <span class='reason-list-blue-text'>3分</span>
+          ですぐに予約
+        </h3>
+        <p class='reason-list-description'>
+          スマホで入力するだけで簡単に予約できる！
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag 'IMG_0583.JPG' , size: '200x200' ,class: "list-pict" %>
+        <span class='reason-list-number'>2</span>
+        <h3 class='reason-list-text'>
+          <span class='reason-list-blue-text'>簡単</span>
+          で使いやすい
+        </h3>
+        <p class='reason-list-description'>
+          めんどくさい入力は必要なく、予約、出店もスムーズ！
+        </p>
+      </li>
+      <li class='list'>
+        <%= image_tag 'IMG_0585.JPG' , size: '200x200' ,class: "list-pict" %>
+        <span class='reason-list-number'>3</span>
+        <h3 class='reason-list-text'>
+          充実！
+          <span class='reason-list-blue-text'>ポイントでお得に利用</span>
+        </h3>
+        <p class='reason-list-description'>
+          最大30%offでお得にお食事が楽しめる！
+        </p>
+      </li>
+    </ul>
+  </div>
+
+</div>
+<%= render "shared/footer" %>
