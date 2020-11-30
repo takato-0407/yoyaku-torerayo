@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :orders, only:[:index, :create]
   end
   resources :tweets do
-    resources :comments, only:[:new, :create]
+    resources :comments, only:[:index, :create]
   end
   resources :users, only: :show
 end

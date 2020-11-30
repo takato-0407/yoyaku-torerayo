@@ -4,7 +4,7 @@
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
-      <%= @tweet.name %>
+      『<%= @tweet.name %>』
     </h2>
     <div class='item-img-content'>
       <%#= image_tag @item.image ,class:"item-box-img" %>
@@ -29,17 +29,17 @@
     </div>
 
     <%# ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
-    <%# if user_signed_in? && current_user.id == @item.user_id %>
+    <% if user_signed_in? && current_user.id == @tweet.user_id %>
     <%= link_to 'ツイート内容の編集', edit_item_path, method: :get, class: "item-red-btn" %>
     <p class='or-text'>or</p>
     <%= link_to 'ツイートを削除', item_path, method: :delete, class:'item-destroy' %>
-    <%# else %>
+    <% else %>
     <%# 商品が売れていない場合はこちらを表示しましょう %>
     <%# if user_signed_in? %>
     <%# if @item.item_purchase.present? %>
     <%# else %>
-    <%#= link_to '購入画面に進む', item_orders_path(@item.id),class:"item-red-btn"%>
-    <%# end %>
+    <%= link_to 'コメントしてみよう！', tweet_comments_path(@tweet.id), class:"item-red-btn"%>
+    <% end %>
     <%# //商品が売れていない場合はこちらを表示しましょう %>
     <%# end %>
 
